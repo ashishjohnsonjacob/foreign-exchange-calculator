@@ -1,0 +1,123 @@
+Albania,ALL,Lek
+Afghanistan,AFN,؋
+Argentina,ARS,$
+Aruba,AWG,ƒ
+Australia,AUD,$
+Austria,EUR,€
+Azerbaijan,AZN,ман
+Bahamas,BSD,$
+Barbados,BBD,$
+Belarus,BYR,p.
+Belgium,EUR,€
+Belize,BZD,BZ$
+Bermuda,BMD,$
+Bolivia,BOB,$b
+Botswana,BWP,P
+Bulgaria,BGN,лв
+Brazil,BRL,R$
+Brunei,BND,$
+Cambodia,KHR,៛
+Canada,CAD,$
+Cayman,KYD,$
+Chile,CLP,$
+China,CNY,¥
+Colombia,COP,$
+Costa Rica,CRC,₡
+Croatia,HRK,kn
+Cuba,CUP,₱
+Cyprus,EUR,€
+Czech Republic,CZK,Kč
+Denmark,DKK,kr
+Egypt,EGP,£
+El Salvador,SVC,$
+Estonia,EEK,kr
+Falkland Islands,FKP,£
+Fiji,FJD,$
+Finland,EUR,€
+France,EUR,€
+Germany,EUR,€
+Ghana,GHC,¢
+Gibraltar,GIP,£
+Greece,EUR,€
+Guatemala,GTQ,Q
+Guernsey,GGP,£
+Guyana,GYD,$
+Honduras,HNL,L
+Hong Kong,HKD,$
+Hungary,HUF,Ft
+Iceland,ISK,kr
+Ireland,EUR,€
+India,INR,₹
+Indonesia,IDR,Rp
+Iran,IRR,﷼
+Isle of Man,IMP,£
+Israel,ILS,₪
+Italy,EUR,€
+Jamaica,JMD,J$
+Japan,JPY,¥
+Jersey,JEP,£
+Kazakhstan,KZT,лв
+North Korea,KPW,₩
+South Korea,KRW,₩
+Kyrgyzstan,KGS,лв
+Laos,LAK,₭
+Latvia,LVL,Ls
+Lebanon,LBP,£
+Liberia,LRD,$
+Lithuania,LTL,Lt
+Luxembourg,EUR,€
+Macedonia,MKD,ден
+Malaysia,MYR,RM
+Malta,EUR,€
+Mauritius,MUR,₨
+Mexico,MXN,$
+Mongolia,MNT,₮
+Mozambique,MZN,MT
+Namibia,NAD,$
+Nepal,NPR,₨
+Netherlands,ANG,ƒ
+New Zealand,NZD,$
+Nicaragua,NIO,C$
+Nigeria,NGN,₦
+Norway,NOK,kr
+Oman,OMR,﷼
+Pakistan,PKR,₨
+Panama,PAB,B/.
+Paraguay,PYG,Gs
+Peru,PEN,S/.
+Philippines,PHP,₱
+Poland,PLN,zł
+Portugal,EUR,€
+Qatar,QAR,﷼
+Romania,RON,lei
+Russia,RUB,руб
+Saint Helena,SHP,£
+Saudi Arabia,SAR,﷼
+Serbia,RSD,Дин.
+Seychelles,SCR,₨
+Singapore,SGD,$
+Slovakia,EUR,€
+Slovenia,EUR,€
+Solomon Islands,SBD,$
+Somalia,SOS,S
+South Africa,ZAR,S
+Spain,EUR,€
+Sri Lanka,LKR,₨
+Sweden,SEK,kr
+Switzerland,CHF,CHF
+Suriname,SRD,$
+Syria,SYP,£
+Taiwan,TWD,NT$
+Thailand,THB,฿
+Trinidad and Tobago,TTD,TT$
+Turkey,TRL,₤
+Tuvalu,TVD,$
+Ukraine,UAH,₴
+United Kingdom,GBP,£
+United States,USD,$
+Uruguay,UYU,$U
+Uzbekistan,UZS,лв
+Venezuela,VEF,Bs
+Viet Nam,VND,₫
+Yemen,YER,﷼
+Zimbabwe,ZWD,Z$
