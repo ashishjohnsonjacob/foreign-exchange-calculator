@@ -1,80 +1,73 @@
-import datetime
+class Country:
+    def __init__(self, name, code, symbol):
+        self.name = name
+        self.code = code
+        self.symbol = symbol
 
-
-class Error(Exception):                                                 #Error class
-    def __init__(self, error_log):
-        super().__init__(error_log)
-
-
-class Country(object):                                                  #Country class
-    def __init__(self, country_name, currency_code, currency_symbol):
-        self.country_name = country_name
-        self.currency_code = currency_code
-        self.currency_symbol = currency_symbol
-
-    def format_currency(self, amount):                                  #adds symbol infront of amount
-        amount_symbol = self.currency_symbol + str("{0:.2f}".format(round(amount, 2)))
-        return amount_symbol
+    def formatted_amount(self, amount):
+        return self.symbol + str(round(amount, 2))
 
     def __str__(self):
-        return "{} {} {}".format(self.country_name, self.currency_code, self.currency_symbol)
+        return '{} ({})'.format(self.name, self.code)
+
+    @classmethod
+    def make(cls, data_list):
+        if not data_list:
+            raise Error("can't make country")
+        return Country(*data_list)
 
 
-class Details(object):
-
+class Details:
     def __init__(self):
-        self.location = []
+        self.locations = []
 
-    def add(self, country_name, start_date, end_date):                  #checks and adds into location list
-        start_date = datetime.datetime.strptime(start_date, "%d/%m/%Y").date().strftime("%Y/%m/%d")
-        end_date = datetime.datetime.strptime(end_date, "%d/%m/%Y").date().strftime("%Y/%m/%d")
-        try:
-            if start_date > end_date:
-                raise Error("END DATE IS AFTER START DATE!")
-            for x in range(len(self.location)):
-                if start_date in self.location[x][0]:
-                    raise Error("START DATE IS ALREADY USED!")
-        except Error as Er:
-            print(Er)
-        else:
-            self.location.append([start_date, end_date, country_name])
+    def add(self, country_name, start_date, end_date):
+        if start_date > end_date:
+            raise Error('invalid trip dates: {} {}'.format(start_date, end_date))
+        for location in self.locations:
+            if location[0] == start_date:
+                raise Error('{}-{} already added'.format(start_date, end_date))
+        self.locations.append((start_date, end_date, country_name))
 
-    def current_country(self, date_str):                                #checks and returns the country according to the date given
-        date_format = datetime.datetime.strptime(date_str, "%d/%m/%Y").date().strftime("%Y/%m/%d")
-        try:
-            for x in range(len(self.location)):
-                if self.location[x][0] <= date_format <= self.location[x][1]:
-                    return self.location[x][2]
-                elif x + 1 == len(self.location):
-                    raise Error("THERE IS NO COUNTRY WITH THAT DATE")
-        except Error as e:
-            print(e)
+    def current_country(self, date_string):
+        for location in self.locations:
+            if location[0] <= date_string <= location[1]:
+                return location[2]
+        raise Error('invalid date')
 
-    def is_empty(self):
-        if not self.location:
-            print("THIS LOCATION LIST IS EMPTY")
-
-if __name__ == "__main__": #executed or imported
-
-#code testing
-
-    import currency                                                     #importing from currency
-    testing_country = Country(*currency.get_details("Singapore"))
-    print(testing_country)
-    print(testing_country.format_currency(10.10), "\n\n")
+    def empty(self):
+        return len(self.locations) == 0
 
 
-    testing_date = Details()
-    testing_date.is_empty()
-    print(testing_date.location, "\n\n")
+class Error(Exception):
+    def __init__(self, value):
+        self.value = value
 
+    def __str__(self):
+        return repr(self.value)
 
-    Details.add(testing_date, "India", "10/12/2010", "25/12/2010")
-    print(testing_date.location)
-    Details.add(testing_date, "Saudi Arabia", "11/10/2011", "22/12/2011")
-    print(testing_date.location, "\n\n")
+if __name__ == '__main__':
+    from currency import get_details
+    import time
 
+    print('test country class')
+    country = Country('Australia', 'AUD', '$')
+    print(country.formatted_amount(10.95))
+    country = Country.make(get_details("Turkey"))
+    print(country.formatted_amount(10.95))
 
-    print(Details.current_country(testing_date, "20/12/2010"))
-    print(Details.current_country(testing_date, "12/10/2003"))
-    testing_date.is_empty()
+    print('test tripdetails class')
+    trip = Details()
+    trip.add(country, "2015/09/05", "2015/09/20")
+    trip.add(country, "2015/09/21", "2016/09/20")
+    try:
+        print(trip.current_country("2015/09/01"))
+    except Error as error:
+        print(error.value)
+
+    print(trip.current_country(time.strftime('%Y/%m/%d')))
+
+    try:
+        trip.add(country, "2015/09/05", "2015/09/20")
+    except Error as error:
+        print(error.value)
