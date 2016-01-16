@@ -46,6 +46,13 @@ def get_details(country_name):
     file.close()
     return ()
 
+def get_all_details():
+    country_dictionary = {}
+    currency_txtfile = open("currency_details.txt", "r", encoding="utf8")
+    for line in currency_txtfile:
+        country_dictionary[line.strip().split(",")[0]] = tuple(line.strip().split(","))
+    return country_dictionary
+
 
 if __name__ == '__main__':
     def conversion_test(amount, source, target):
