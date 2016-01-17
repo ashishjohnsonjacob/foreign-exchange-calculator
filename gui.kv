@@ -1,24 +1,32 @@
 BoxLayout:
-    orientation='vertical'
+    orientation: 'vertical'
     Label:
-        font_size: 70
-        text: "Current trip location:"
+        id: current_location
+        halign: 'center'
     GridLayout:
         cols: 2
         Spinner:
-            text='a',
-            values=('a', 'b, 'c', 'd')
+            id: spinner_selection
+            values: app.name_country
+            on_text: app.set_selected_country()
         TextInput:
+            multiline: False
+            id: input_selected
             text: ''
+            on_text_validate: app.convert_selected_to_home()
         Label:
-            text: 'Australia'
+            text: app.home_country
         TextInput:
+            multiline: False
+            id: input_home
             text: ''
+            on_text_validate: app.convert_home_to_selected()
     Label:
-        "Today is DATE"
+        id: date
+        halign: 'center'
     GridLayout:
         cols: 2
         Label:
-            text: "trip details accepted"
+            text: 'trip details accepted'
         Button:
-            text: "Update Currency"
+            text: 'Update Currency'
