@@ -44,9 +44,9 @@ class Foreign_Exchange_Calculator(App):
             self.home_country_details = currency.get_details(self.home_country)
             self.status_bar_text = str("TRIP DETAILS ACCEPTED")
         except:
-            if  os.path.isfile(confix.txt)
-                self.status_bar_text = str("FILE NOT FOUND")
-            else:
+           # if  os.path.isfile(confix.txt)
+            #    self.status_bar_text = str("FILE NOT FOUND")
+           # else:
                 self.status_bar_text = str("TRIP DETAILS INVALID")
 
     def set_selected_country(self):
