@@ -19,8 +19,7 @@ class Foreign_Exchange_Calculator(App):
     name_country = ListProperty()               #list of countries from currency_details.txt
 
     def __init__(self):                         #initializing the class's object
-        super().__init__()
-        self.locations = trip.Details()             #getting details from trip module's details()
+        super().__init__()                      #App class initialized
         self.get_home_country()                     #calling function to get the home country from config.txt
         self.get_full_country_list()                #getting full list of country for spinner
         self.today_date = datetime.datetime.now()   #getting current date and time
