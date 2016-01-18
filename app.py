@@ -69,25 +69,29 @@ class Foreign_Exchange_Calculator(App):
         return self.country_details
 
     def convert(self):
-            self.root.ids.input_selected.text = str(currency.convert(1, self.home_country_details[1],self.selected_country_details[1]))
+            self.converted_amount = currency.convert(1, self.home_country_details[1],self.selected_country_details[1])
+            self.root.ids.input_selected.text = str(("{:.3f}".format(self.converted_amount)))
             self.root.ids.input_home.text = str(1)
             self.root.ids.status_bar.text = str("{} ({}) to {} ({})".format(self.home_country_details[1], self.home_country_details[2], self.selected_country_details[1], self.selected_country_details[2]))
 
     def convert_selected_to_home(self):
         try:
-            self.root.ids.input_home.text = str(currency.convert(self.root.ids.input_selected.text, self.selected_country_details[1], self.home_country_details[1]))
+            self.converted_amount_st = currency.convert(self.root.ids.input_selected.text, self.selected_country_details[1], self.home_country_details[1])
+            self.root.ids.input_home.text = str(("{:.3f}".format(self.converted_amount_st)))
             self.root.ids.status_bar.text = str("{} ({}) to {} ({})".format(self.selected_country_details[1], self.selected_country_details[2], self.home_country_details[1], self.home_country_details[2]))
         except:
             print("ERROR IN CONVERSION.")
 
     def convert_home_to_selected(self):
         try:
-            self.root.ids.input_selected.text = str(currency.convert(self.root.ids.input_home.text, self.home_country_details[1],self.selected_country_details[1]))
+            self.converted_amount_ts = currency.convert(self.root.ids.input_home.text, self.home_country_details[1],self.selected_country_details[1])
+            self.root.ids.input_selected.text = str(("{:.3f}".format(self.converted_amount_ts)))
             self.root.ids.status_bar.text = str("{} ({}) to {} ({})".format(self.home_country_details[1], self.home_country_details[2], self.selected_country_details[1], self.selected_country_details[2]))
         except:
             self.get_current_country_details()
             self.root.ids.spinner_selection.text = self.current_country
-            self.root.ids.input_selected.text = str(currency.convert(self.root.ids.input_home.text, self.home_country_details[1], self.current_country_details[1]))
+            self.converted_amount_ts = currency.convert(self.root.ids.input_home.text, self.home_country_details[1], self.current_country_details[1])
+            self.root.ids.input_selected.text = str(("{:.3f}".format(self.converted_amount_ts)))
             self.root.ids.status_bar.text = str("{} ({}) to {} ({})".format(self.home_country_details[1], self.home_country_details[2], self.selected_country_details[1], self.selected_country_details[2]))
 
     def current_location(self, str_date):
@@ -101,10 +105,7 @@ class Foreign_Exchange_Calculator(App):
                 return x[0]
 
     def updated(self):
-        if not self.root.ids.spinner_selection.text:
-            self.root.ids.spinner_selection.text = str(self.current_country)
-        else:
-            self.convert_home_to_selected()
+        self.convert_home_to_selected()
         self.root.ids.status_bar.text = str("{}{}".format("UPDATED AT ", self.current_time ))
 
     def status_bar_clear(self):
