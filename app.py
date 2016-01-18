@@ -60,10 +60,7 @@ class Foreign_Exchange_Calculator(App):
                     self.splitted_line = line.split(",")    #split each line by ',' and putting in a list
                     self.full_country_name_list.append(self.splitted_line[0])   #getting all the country names into the list
 
-    def get_country_details(self, country_name):        #used to get country details of a particular country
-        self.country_name = country_name                #local variable
-        self.country_details = currency.get_details(self.country_name)      #using the get_details method from currency module
-        return self.country_details         #returns the country details
+
 
     def convert(self):          #conversion upon getting a selected country name from spinner
             self.converted_amount = currency.convert(1, self.home_country_details[1],self.selected_country_details[1]) #a. converts the amount using convert() from currency module
