@@ -3,12 +3,12 @@ BoxLayout:
     Label:
         canvas.before:
             Color:
-                rgba: 1,1,1,1
+                rgba: 1, 0, 0, 0.75
             Rectangle:
                 pos: self.pos
                 size: self.size
         font_size: 25
-        color: 0,0,0,1
+        color: 1,1,1,1
         size_hint_y: 0.8
         id: current_location
         halign: 'center'
@@ -27,6 +27,12 @@ BoxLayout:
             on_text: app.status_bar_clear()
             on_text_validate: app.convert_selected_to_home()
         Label:
+            canvas.before:
+                Color:
+                    rgba: .9, .5, .95, .5
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             text: app.home_country
         TextInput:
             input_filter: 'int'
@@ -37,18 +43,24 @@ BoxLayout:
     Label:
         canvas.before:
             Color:
-                rgba: 1,1,1,1
+                rgba: 1, .90, .0, 0.5
             Rectangle:
                 pos: self.pos
                 size: self.size
-        font_size: 40
-        color: 0,0,0,1
+        font_size: 25
+        color: 1,1,1,1
         id: date
         halign: 'center'
     GridLayout:
-        size_hint_y: 0.3
+        size_hint_y: 0.2
         cols: 2
         Label:
+            canvas.before:
+                Color:
+                    rgba: .5, .95, .5, .5
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
             id: status_bar
             text: app.status_bar_text
         Button:

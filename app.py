@@ -78,7 +78,7 @@ class Foreign_Exchange_Calculator(App):
             self.root.ids.input_home.text = str(currency.convert(self.root.ids.input_selected.text, self.selected_country_details[1], self.home_country_details[1]))
             self.root.ids.status_bar.text = str("{} ({}) to {} ({})".format(self.selected_country_details[1], self.selected_country_details[2], self.home_country_details[1], self.home_country_details[2]))
         except:
-            print("ERROR IN CONVERSION. PLEASE ENTER A VALID AMOUNT")
+            print("ERROR IN CONVERSION.")
 
     def convert_home_to_selected(self):
         try:
